@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Preloader from './components/Preloader'
+import ParticleField from './components/ParticleField'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -76,6 +77,7 @@ export default function App() {
         />
       )}
       <div className={`app-shell${phase === 'loading' ? ' booting' : ''}`}>
+      <ParticleField />
       <Navbar tabs={TABS} active={active} onChange={go} />
       <main className="tab-stage">
         <div

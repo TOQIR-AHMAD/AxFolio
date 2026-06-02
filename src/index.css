@@ -44,6 +44,10 @@ body::after{
 
 .app-shell{min-height:100vh;display:flex;flex-direction:column}
 
+/* Click-reactive background particles. Fixed, behind all content (.wrap is
+   z-index:1), and click-through so the page stays fully interactive. */
+.particle-field{position:fixed;inset:0;z-index:0;pointer-events:none}
+
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 32px;
