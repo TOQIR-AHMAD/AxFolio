@@ -1,4 +1,5 @@
 import { profile, lede } from '../data/portfolio'
+import DownloadCV from './DownloadCV'
 
 export default function Hero({ onNavigate }) {
   const [first, ...rest] = profile.name.split(' ')
@@ -26,10 +27,8 @@ export default function Hero({ onNavigate }) {
           <button type="button" className="btn btn-ghost" onClick={() => onNavigate('contact')}>
             Let's talk
           </button>
-          {profile.resume && (
-            <a className="btn btn-link" href={profile.resume} target="_blank" rel="noopener noreferrer">
-              Download CV ↓
-            </a>
+          {profile.resume && (profile.resume.pdf || profile.resume.docx) && (
+            <DownloadCV files={profile.resume} />
           )}
         </div>
         <div className="hero-meta reveal">

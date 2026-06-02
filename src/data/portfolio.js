@@ -7,8 +7,12 @@ export const profile = {
   email: 'toqirahmad7@gmail.com',
   since: '2021',
   repoCount: 13,
-  // Drop your CV at public/resume.pdf (or set a full URL). Leave '' to hide the button.
-  resume: '/resume.pdf',
+  // CV files live in public/. The Download CV button offers each format below.
+  // Remove a line to drop that option; clear the object to hide the button.
+  resume: {
+    pdf: '/Toqir_Ahmad_Resume.pdf',
+    docx: '/Toqir_Ahmad_Resume.docx',
+  },
 }
 
 export const lede =
@@ -134,5 +138,4 @@ export const socials = [
   { label: 'GitHub', url: 'https://github.com/TOQIR-AHMAD' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/toqir-ahmad/' },
   { label: 'X / Twitter', url: 'https://www.x.com/Mr_Skipper__' },
-  { label: 'Portfolio', url: 'https://toqir-ahmad.github.io/PortFolio/' },
 ]
