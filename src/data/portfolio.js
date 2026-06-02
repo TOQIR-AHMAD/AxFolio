@@ -7,6 +7,8 @@ export const profile = {
   email: 'toqirahmad7@gmail.com',
   since: '2021',
   repoCount: 13,
+  // Drop your CV at public/resume.pdf (or set a full URL). Leave '' to hide the button.
+  resume: '/resume.pdf',
 }
 
 export const lede =
@@ -87,41 +89,44 @@ export const builds = [
   'Web Games',
 ]
 
+// Each project: tags drive the chips; `repo`/`live` render as separate links;
+// `featured: true` promotes a project to a full-width highlighted card.
 export const work = [
   {
     title: 'Ecommerce-Web',
-    url: 'https://github.com/TOQIR-AHMAD/Ecommerce-Web',
     desc: 'A full e-commerce front-end with product browsing, cart and checkout flows — built for speed and a clean shopping experience.',
-    lang: 'JavaScript',
-    kind: 'Web · Commerce',
+    tags: ['JavaScript', 'Web', 'Commerce'],
+    repo: 'https://github.com/TOQIR-AHMAD/Ecommerce-Web',
+    live: '',
+    featured: true,
   },
   {
     title: 'razers',
-    url: 'https://github.com/TOQIR-AHMAD/razers',
     desc: 'A TypeScript application showcasing typed, component-driven architecture and a maintainable front-end codebase.',
-    lang: 'TypeScript',
-    kind: 'App · UI',
+    tags: ['TypeScript', 'App', 'UI'],
+    repo: 'https://github.com/TOQIR-AHMAD/razers',
+    live: '',
   },
   {
     title: 'sdnet',
-    url: 'https://github.com/TOQIR-AHMAD/sdnet',
     desc: 'A JavaScript project exploring networked, interactive functionality — a practical study in clean client-side logic.',
-    lang: 'JavaScript',
-    kind: 'Web',
+    tags: ['JavaScript', 'Web'],
+    repo: 'https://github.com/TOQIR-AHMAD/sdnet',
+    live: '',
   },
   {
     title: 'PortFolio',
-    url: 'https://toqir-ahmad.github.io/PortFolio/',
     desc: 'A hand-built personal site — responsive layout, considered typography and a focus on fast, accessible markup.',
-    lang: 'HTML · CSS',
-    kind: 'Live site',
+    tags: ['HTML', 'CSS', 'Live site'],
+    repo: 'https://github.com/TOQIR-AHMAD/PortFolio',
+    live: 'https://toqir-ahmad.github.io/PortFolio/',
   },
   {
     title: 'Tic-Tac-Toi',
-    url: 'https://github.com/TOQIR-AHMAD/Tic-Tac-Toi',
     desc: 'A C++ game implementation with clean game-state logic — a fundamentals-first take on a classic.',
-    lang: 'C++',
-    kind: 'Game · Logic',
+    tags: ['C++', 'Game', 'Logic'],
+    repo: 'https://github.com/TOQIR-AHMAD/Tic-Tac-Toi',
+    live: '',
   },
 ]
 

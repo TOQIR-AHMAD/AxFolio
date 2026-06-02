@@ -3,7 +3,7 @@ import { expertise, builds } from '../data/portfolio'
 
 export default function Expertise() {
   return (
-    <section id="expertise">
+    <section>
       <div className="wrap">
         <SectionHead num="02" title="Expertise" />
         <div className="exp-grid">

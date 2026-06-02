@@ -2,7 +2,7 @@ import { profile, socials } from '../data/portfolio'
 
 export default function Contact() {
   return (
-    <section className="contact" id="contact">
+    <section className="contact">
       <div className="wrap">
         <div className="eyebrow reveal">Let's build something</div>
         <h2 className="reveal">

@@ -3,7 +3,7 @@ import { about, facts } from '../data/portfolio'
 
 export default function About() {
   return (
-    <section id="about">
+    <section>
       <div className="wrap">
         <SectionHead num="01" title="About" />
         <div className="about-grid">
