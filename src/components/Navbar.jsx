@@ -5,6 +5,9 @@ export default function Navbar({ tabs, active, onChange }) {
   const [scrolled, setScrolled] = useState(false)
   const btnRefs = useRef({})
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
+  // The pill is placed instantly on first paint, then slides on later changes —
+  // without this it would visibly grow from the top-left corner on load.
+  const [slidable, setSlidable] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -20,9 +23,14 @@ export default function Navbar({ tabs, active, onChange }) {
       if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
     }
     move()
+    // Enable the slide transition only after the first position has painted.
+    const raf = requestAnimationFrame(() => setSlidable(true))
     window.addEventListener('resize', move)
     if (document.fonts?.ready) document.fonts.ready.then(move)
-    return () => window.removeEventListener('resize', move)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', move)
+    }
   }, [active, tabs])
 
   const onKeyDown = (e) => {
@@ -41,7 +49,7 @@ export default function Navbar({ tabs, active, onChange }) {
 
       <div className="tabs" role="tablist" aria-label="Sections" onKeyDown={onKeyDown}>
         <span
-          className="tab-indicator"
+          className={`tab-indicator${slidable ? ' slidable' : ''}`}
           style={{ transform: `translateX(${indicator.left}px)`, width: indicator.width }}
         />
         {tabs.map((t, i) => (

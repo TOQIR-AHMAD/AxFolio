@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -35,6 +36,8 @@ const fromHash = () => {
 export default function App() {
   const [active, setActive] = useState(fromHash)
   const [dir, setDir] = useState('forward')
+  // 'loading' → splash up, page frozen · 'revealing' → curtain lifting, page animates in · 'ready'
+  const [phase, setPhase] = useState('loading')
   const activeRef = useRef(active)
   activeRef.current = active
 
@@ -65,7 +68,14 @@ export default function App() {
   const Panel = PANELS[active]
 
   return (
-    <div className="app-shell">
+    <>
+      {phase !== 'ready' && (
+        <Preloader
+          onReveal={() => setPhase('revealing')}
+          onDone={() => setPhase('ready')}
+        />
+      )}
+      <div className={`app-shell${phase === 'loading' ? ' booting' : ''}`}>
       <Navbar tabs={TABS} active={active} onChange={go} />
       <main className="tab-stage">
         <div
@@ -79,6 +89,7 @@ export default function App() {
         </div>
       </main>
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }
